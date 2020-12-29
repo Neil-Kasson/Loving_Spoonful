@@ -15,7 +15,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(value = "/")
+	@GetMapping(value = "/home")
 	public String getUser(@PathVariable(value="username") String username, Model model){
 		User loggedInUser = userService.getLoggedInUser();
 		User user = userService.findByUsername(username);
