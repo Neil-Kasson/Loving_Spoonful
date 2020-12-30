@@ -19,7 +19,9 @@ public class UserController {
 	public String getUser(@PathVariable(value="username") String username, Model model){
 		User loggedInUser = userService.getLoggedInUser();
 		User user = userService.findByUsername(username);
+		Long userId = user.getId();
 
 		return "index";
 	}
 }
+
