@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../resources/static/css/custom.css">
+
     <title>loving_spoonful</title>
 </head>
 <body>
     <div class="container">
-				<div class="row jumbotron">.
-			<div class="col-sm-8 col-sm-offset-2">
+				<div class="row jumbotron">
+			<div class="col-md-8 col-md-offset-2">
 				<div th:if="!${success}"></div>
-				<h2>Create an account</h2>
+				<h2>Sign up</h2>
 				<form th:action="@{/signup}" th:object="${user}" method="post"
 					autocomplete="off">
 					<div class="form-group">
@@ -45,30 +45,30 @@
 							th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
 							class="validation-message"></label>
 					</div>
-					<div th:if="${success}">
-						<h2>
-							<span class="text-success" th:utext="${success}"></span>
-						</h2>
-						<br />
-					</div>
 					<div class="form-group">
 						<button class="btn btn-md btn-success btn-block" name="Submit"
-							value="Submit" type="Submit" th:text="Submit">Sign In</button>
-					</div><form th:action="@{/login}" method="get">
-						<button class="btn btn-md btn-primary btn-block" type="Submit"><h6>already have an account</h6><h4>LOGIN</h4></button>
-	
-					</form>
+							value="Submit" type="Submit" th:text="Submit"></button>
+					</div>
+				</form>
+			</div>
+			<div th:if="${success}">
+				<h2>
+					<span class="text-success" th:utext="${success}"></span>
+				</h2>
+				<br />
+				<form th:action="@{/login}" method="get">
+					<button class="btn btn-md btn-primary btn-block" type="Submit">Go
+						to login page</button>
 
 				</form>
 			</div>
-			
 		</div>
 
 
 
 <style th:inline="text">
         body{
-        background: url([[@{../../../static/images/blueberries-in-heart-shaped-spoon-garry-gay.jpg)no-repeat center center fixed; background-size:cover;
+        background: url([[@{../../images/blueberries-in-heart-shaped-spoon-garry-gay.jpg}]])no-repeat center center fixed;
      
         }
             
