@@ -18,6 +18,8 @@ public class Meal {
 
 	private String name;
 
+	private String type; // breakfast, lunch, dinner
+
 	private String image;
 
 	private int calories;
@@ -31,9 +33,10 @@ public class Meal {
 	public Meal() {
 	}
 
-	public Meal(Long id, String name, String image, int calories) {
+	public Meal(Long id, String name, String type, String image, int calories) {
 		this.id = id;
 		this.name = name;
+		this.type = type;
 		this.image = image;
 		this.calories = calories;
 	}
@@ -58,6 +61,14 @@ public class Meal {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getImage() {
@@ -85,10 +96,11 @@ public class Meal {
 	@Override
 	public String toString() {
 		return "{" +
-			" id='" + getId() + "'" +
-			", name='" + getName() + "'" +
-			", image='" + getImage() + "'" +
-			", calories='" + getCalories() + "'" +
+			" id='" + id + "'" +
+			", name='" + name + "'" +
+			", type='" + type + "'" +
+			", image='" + image + "'" +
+			", calories='" + calories + "'" +
 			"}";
 	}
 
