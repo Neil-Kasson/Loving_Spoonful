@@ -1,14 +1,16 @@
-.jumbotron{
+.jumbotron {
     background: transparent;
 }
+
 .form-control {
     background: rgba(36, 26, 26, 0.5);
-    }
-    ::placeholder {
+}
+
+/* ::placeholder {
     text: rgb(233, 233, 245);
     opacity: 7;
-    }
-    .button{
-        background color: green;
-    }
+    } */
 
+.button {
+    background color: green;
+}
