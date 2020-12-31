@@ -1,5 +1,7 @@
 package com.tts.loving_spoonful.model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,16 +23,13 @@ public class User{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private Long id;
-
 	private String username;
-
 	private String password;
-
 	private int active;
 
-	// @ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Role role;
+	private Set<Role> roles;
 
 
 
@@ -41,12 +40,12 @@ public class User{
 	public User() {
 	}
 
-	public User(Long id, String username, String password, int active, Role role) {
+	public User(Long id, String username, String password, int active, Set<Role> roles) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.active = active;
-		this.role = role;
+		this.roles = roles;
 	}
 
 
@@ -87,12 +86,12 @@ public class User{
 		this.active = active;
 	}
 
-	public Role getRole() {
-		return this.role;
+	public Set<Role> getRoles() {
+		return this.roles;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
 	
@@ -108,7 +107,7 @@ public class User{
 			", username='" + username + "'" +
 			", password='" + password + "'" +
 			", active='" + active + "'" +
-			", role='" + role + "'" +
+			", roles='" + roles + "'" +
 			"}";
 	}
 

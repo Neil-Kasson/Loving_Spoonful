@@ -1,40 +1,34 @@
 <!DOCTYPE html>
-<html xml:lang = en xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xml:lang=en xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../resources/static/css/custom.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../resources/static/css/style.css">
     <title>loving_spoonful</title>
 </head>
+
 <body>
-    <div class="container">
-        
-        <h2>Welcome to Loving Spoonful</h2> 
-        <form th:action="@{/login}" method="post"><br/>
-            <input type="text" id="username" name="username" th:placeholder="Username" class="form-control"/> <br/>
-            <input type="password" th:placeholder="Password" id="password" name="password" class="form-control"/> <br/>
-            <div th:if="${param.error}">
-                <h4 style="color: red">Login unsuccessful.</h4>
-            </div>
-            <button class="btn btn-md btn-success btn-block" name="Submit" value="Login" type="Submit">Log in</button> 
-        </form>      
-        <!-- <button class="btn btn-md btn-danger btn-block" name="Submit" value="Signup" type="Submit">Sign Up</button>  -->
-    </div>
+    <h2>Welcome to Loving Spoonful</h2>
+    <form th:action="@{/login}" method="post"><br />
+        <input type="text" id="username" name="username" th:placeholder="Username" class="form-control" /> <br />
+        <input type="password" th:placeholder="Password" id="password" name="password" class="form-control" /> <br />
+        <div th:if="${param.error}">
+            <h4 style="color: red">Login unsuccessful.</h4>
+        </div>
+        <button class="btn btn-md btn-success btn-block" name="Submit" value="Login" type="Submit">Log in</button>
+    </form>
 
     <style th:inline="text">
         body{
-        background: url([[@{../../../static/images/blueberries-in-heart-shaped-spoon-garry-gay.jpg)no-repeat center center fixed; background-size:cover;
-     
+            background: url([[@{../../../static/images/blueberries-in-heart-shaped-spoon-garry-gay.jpg)no-repeat center center fixed; 
+            background-size:cover;
         }
-            
     </style>
-    
-
-
-
-
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 </body>
+
 </html>

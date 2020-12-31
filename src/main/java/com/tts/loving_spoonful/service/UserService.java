@@ -1,5 +1,8 @@
 package com.tts.loving_spoonful.service;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import com.tts.loving_spoonful.model.Role;
 import com.tts.loving_spoonful.model.User;
 import com.tts.loving_spoonful.repository.RoleRepository;
@@ -37,7 +40,7 @@ public class UserService {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(1);
 		Role userRole = roleRepository.findByRole("USER");
-		user.setRole(userRole);
+		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		return userRepository.save(user);
 	}
 

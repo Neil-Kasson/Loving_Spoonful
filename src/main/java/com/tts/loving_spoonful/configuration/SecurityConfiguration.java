@@ -60,14 +60,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .logoutSuccessUrl("/login").and().exceptionHandling();
         
         http.headers().frameOptions().disable();
+
+        // security.httpBasic().disable();
     }
-
-
-
-    // @Override
-    // protected void configure(HttpSecurity security) throws Exception{
-    //     security.httpBasic().disable();
-    // }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
