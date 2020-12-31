@@ -134,16 +134,12 @@
 	background-repeat: no-repeat;
 }
 
-.veal {
-	background: url('../images/veal.png');
-	background-position: center;
-	background-repeat: no-repeat;
-}
 .salmon {
 	background: url('../images/salmon.png');
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
 .bbq {
 	background: url('../images/bbq-beef.png');
 	background-position: center;
