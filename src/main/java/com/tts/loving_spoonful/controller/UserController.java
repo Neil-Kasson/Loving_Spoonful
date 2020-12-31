@@ -15,13 +15,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(value = "/home")
-	public String getUser(@PathVariable(value="username") String username, Model model){
+	@GetMapping(value = "/user")
+	public String getUser(@PathVariable(value = "username") String username, Model model) {
 		User loggedInUser = userService.getLoggedInUser();
 		User user = userService.findByUsername(username);
-		Long userId = user.getId();
-
-		return "index";
+		boolean isSelfPage = loggedInUser.getUsername().equals(username);
+		model.addAttribute("user", user);
+		model.addAttribute("isSelfPage", isSelfPage);
+		return "user";
 	}
 }
 

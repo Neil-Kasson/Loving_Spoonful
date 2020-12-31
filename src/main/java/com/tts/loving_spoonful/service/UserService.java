@@ -1,6 +1,8 @@
 package com.tts.loving_spoonful.service;
 
+import com.tts.loving_spoonful.model.Role;
 import com.tts.loving_spoonful.model.User;
+import com.tts.loving_spoonful.repository.RoleRepository;
 import com.tts.loving_spoonful.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,14 @@ import org.springframework.stereotype.Service;
 public class UserService {
 	
 	private UserRepository userRepository;
+	private RoleRepository roleRepository;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
-	public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public UserService(UserRepository userRepository, RoleRepository roleRepository,
+			BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
@@ -31,6 +36,8 @@ public class UserService {
 	public User saveNewUser(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(1);
+		Role userRole = roleRepository.findByRole("USER");
+		user.setRole(userRole);
 		return userRepository.save(user);
 	}
 
