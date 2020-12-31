@@ -18,19 +18,24 @@ public class AuthorizationController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(value = "/")
+	@GetMapping(value = "/login")
 	public String login() {
 		return "login";
 	}
 
-	@GetMapping(value = "/signup")
+	@PostMapping(value = "/login")
+	public String loginDone(){
+		return "index";
+	}
+
+	@GetMapping(value = "/")
 	public String registration(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
 		return "registration";
 	}
 
-	@PostMapping(value = "/signup")
+	@PostMapping(value = "/")
 	public String createNewUser(@Valid User user, BindingResult bindingResult, Model model) {
 		User userExists = userService.findByUsername(user.getUsername());
 		if (userExists != null) {

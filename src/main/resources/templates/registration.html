@@ -6,11 +6,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="../static/css/style.css">
 	<title>loving_spoonful</title>
 </head>
 
-<body>
+<body class="page">
 	<div class="row jumbotron">.
 		<div class="col-sm-8 col-sm-offset-2">
 			<div th:if="!${success}"></div>
@@ -35,23 +36,25 @@
 							Sign In
 						</button>
 					</div>
+				</form>
+				<div>
 					<form th:action="@{/login}" method="get">
 						<button class="btn btn-md btn-primary btn-block" type="Submit">
 							<h6>already have an account</h6>
 							<h4>LOGIN</h4>
 						</button>
 					</form>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<style th:inline="text">
+	<!-- <style th:inline="text">
         body{
 			background: url([[@{../../../static/images/blueberries-in-heart-shaped-spoon-garry-gay.jpg)no-repeat center center fixed; 
 			background-size:cover;
         }
-    </style>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    </style> -->
+     
 </body>
 </html>
